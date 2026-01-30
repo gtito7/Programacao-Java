@@ -15,10 +15,12 @@ public class calculadora {
     }
 
     static double dividir(double a, double b) {
-        if (b == 0) {
+        if (b == 0 || a ==0) {
             System.out.println("Erro: divisão por zero!");
+            
             return 0;
         }
+        
         return a / b;
     }
 
