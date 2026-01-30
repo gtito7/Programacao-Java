@@ -2,56 +2,67 @@ import java.util.Scanner;
 
 public class calculadora {
 
-    static double somar(double a, double b) {
-        return a + b;
+    // Operacoes disponiveis
+    static int soma() {
+        return 1;
     }
 
-    static double subtrair(double a, double b) {
-        return a - b;
+    static int subtracao() {
+        return 2;
     }
 
-    static double multiplicar(double a, double b) {
-        return a * b;
+    static int multiplicacao() {
+        return 3;
     }
 
-    static double dividir(double a, double b) {
-        if (b == 0 || a ==0) {
-            System.out.println("Erro: divisão por zero!");
-            
-            return 0;
+    static int divisao() {
+        return 4;
+    }
+
+    // Metodo para calcular
+    static void calcular(double a, double b, int operacao) {
+
+        if (operacao == soma()) {
+            System.out.println("Resultado: " + (a + b));
+
+        } else if (operacao == subtracao()) {
+            System.out.println("Resultado: " + (a - b));
+
+        } else if (operacao == multiplicacao()) {
+            System.out.println("Resultado: " + (a * b));
+
+        } else if (operacao == divisao()) {
+
+            if (b == 0) {
+                System.out.println("Erro: divisao por zero!");
+            } else {
+                System.out.println("Resultado: " + (a / b));
+            }
+
+        } else {
+            System.out.println("Operacao invalida!");
         }
-        
-        return a / b;
     }
 
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Digite o primeiro número: ");
+        System.out.print("Digite o primeiro numero: ");
         double num1 = sc.nextDouble();
 
-        System.out.print("Digite o segundo número: ");
+        System.out.print("Digite o segundo numero: ");
         double num2 = sc.nextDouble();
 
-        System.out.println("Escolha a operação:");
         System.out.println("1 - Soma");
-        System.out.println("2 - Subtração");
-        System.out.println("3 - Multiplicação");
-        System.out.println("4 - Divisão");
-        System.out.print("Opção: ");
+        System.out.println("2 - Subtracao");
+        System.out.println("3 - Multiplicacao");
+        System.out.println("4 - Divisao");
+        System.out.print("Opcao: ");
         int opcao = sc.nextInt();
 
-        double resultado = 0;
+        calcular(num1, num2, opcao);
 
-        switch (opcao) {
-            case 1: resultado = somar(num1, num2); break;
-            case 2: resultado = subtrair(num1, num2); break;
-            case 3: resultado = multiplicar(num1, num2); break;
-            case 4: resultado = dividir(num1, num2); break;
-            default: System.out.println("Opção inválida!");
-        }
-
-        System.out.println("Resultado: " + resultado);
         sc.close();
     }
 }
